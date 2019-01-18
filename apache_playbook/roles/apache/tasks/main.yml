@@ -1,0 +1,10 @@
+---
+- name: install Apache
+  apt: name=apache2 state=latest
+  become: true
+- name: Service apache Restarting
+  service: name=apache2 state=restarted enabled=yes
+- name: removing the webdir
+  file: path=/var/www/html/index.html state=absent
+- name: cloneing git repo
+  git: repo="https://github.com/lincyv2018/webpages.git" clone=yes dest=/var/www/html

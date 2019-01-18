@@ -1,0 +1,14 @@
+---
+- hosts: [all]
+  become: true
+  variables:
+     - 
+  tasks:
+     -  name: Installing tools 
+        apt: name={{list}} state=latest
+        with_list:
+           - atop
+           - htop
+           - sysstat
+           - wget
+           - curl 
