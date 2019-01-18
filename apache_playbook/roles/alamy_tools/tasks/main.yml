@@ -1,0 +1,10 @@
+---
+- name: Installing Alamy Tools
+  apt: name={{ item }} state=latest
+  with_items:
+      - atop
+      - htop
+      - sysstat
+      - wget
+      - curl
+  become: true 
